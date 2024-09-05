@@ -16,6 +16,11 @@ namespace Business.Services.ProductService
             _productDataAccess = productDataAccess;
         }
 
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Edit(Product product)
         {
             var newProduct = new Product

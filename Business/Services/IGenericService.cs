@@ -9,5 +9,6 @@ namespace Business.Services
     public interface IGenericService<T>
     {
         List<T> GetAll();
+        void Delete(int id);
     }
 }

@@ -27,6 +27,11 @@ namespace DataAccess.Product
             }
         }
 
+        public Task Delete(string tableName, string condition)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<List<T>> GetAll(string tableName)
         {
             using (var con = _dbConnection)

@@ -34,6 +34,11 @@ namespace Business.Services.StoreService
             _storeDataAccess.AddOrModify(query,newStore);
         }
 
+        public void Delete(int id)
+        {
+            _storeDataAccess.Delete("sales.stores", $"store_id = {id}");
+        }
+
         public void EditStore(Store store)
         {
             var newStore = new Store

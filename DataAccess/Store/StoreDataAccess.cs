@@ -27,6 +27,16 @@ namespace DataAccess.Store
             }
         }
 
+        public async Task Delete(string tableName, string condition)
+        {
+            using (var con = _dbConnection)
+            {
+                con.Open();
+                var query = $"DELETE FROM {tableName} WHERE {condition}";
+                await con.ExecuteAsync(query);
+            }
+        }
+
         public async Task<List<T>> GetAll(string tableName)
         {
             using (var con = _dbConnection)

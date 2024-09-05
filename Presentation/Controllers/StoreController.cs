@@ -48,5 +48,11 @@ namespace Presentation.Controllers
             _storeService.AddStore(store);
             return RedirectToAction("GetAll");
         }
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            _storeService.Delete(id);
+            return RedirectToAction("GetAll");
+        }
     }
 }

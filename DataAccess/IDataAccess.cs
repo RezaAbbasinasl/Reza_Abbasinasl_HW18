@@ -11,5 +11,6 @@ namespace DataAccess
         Task<List<T>> GetAll(string tableName);
         Task AddOrModify(string query, T parameter);
         Task<T?> Search(string tableName, string whereClause);
+        Task Delete(string tableName, string condition);
     }
 }
