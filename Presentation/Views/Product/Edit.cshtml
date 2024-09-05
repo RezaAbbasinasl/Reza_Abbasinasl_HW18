@@ -1,0 +1,17 @@
+﻿@model Business.Model.Product.Product
+
+<form class="form-group" method="POST" asp-action="Edit">
+
+    <input class="form-control" type="hidden" asp-for="@Model.Product_Id" value="@Model.Product_Id">
+
+    <label>Product Name</label>
+    <input class="form-control" type="text" asp-for="@Model.Product_Name" value="@Model.Product_Name">
+
+    <label>Model Year</label>
+    <input class="form-control" type="text" asp-for="@Model.Model_Year" value="@Model.Model_Year">
+
+    <label>List Price</label>
+    <input class="form-control" type="text" asp-for="@Model.List_Price" value="@Model.List_Price">
+
+    <input type="submit" value="Edit" class="btn btn-success mt-4" />
+</form>

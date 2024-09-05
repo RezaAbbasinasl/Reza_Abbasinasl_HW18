@@ -1,0 +1,89 @@
+﻿@model List<Business.Model.Store.Store>
+
+<p>
+    <a asp-action="Create" class="my-3 btn btn-outline-primary">Create New Store</a>
+</p>
+<form asp-controller="Store" asp-action="GetAll" method="post" class="mb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <input type="number" class="form-control" name="zipCode" id="storeIdInput" placeholder="Zip Code">
+            </div>
+            <div class="col-5">
+                <input type="text" class="form-control" name="storeName" id="storeIdInput" placeholder="Store Name">
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th hidden>
+                Store Id
+            </th>
+            <th>
+                Store Name
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Street
+            </th>
+            <th>
+                City
+            </th>
+            <th>
+                State
+            </th>
+            <th>
+                Zip_Code
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td hidden>
+                @Html.DisplayFor(modelItem => item.Store_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Store_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zip_Code)
+            </td>
+            <td>
+                @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
+                    <a asp-controller="Product" asp-action="GetProductsByStoreId" asp-route-id="@item.Store_Id" class="text-decoration-none btn-sm btn-outline-info ">Details</a>
+                    <a asp-action="Edit" asp-route-id="@item.Store_Id" class="text-decoration-none btn-sm btn-outline-secondary ">Edit</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

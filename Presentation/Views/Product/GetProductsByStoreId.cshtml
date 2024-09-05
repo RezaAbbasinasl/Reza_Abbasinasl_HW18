@@ -1,0 +1,37 @@
+﻿@model List<Business.Model.Product.Product>
+
+<p>
+    <a asp-action="Create" class="my-3 btn btn-outline-primary">Create New Product</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th hidden>
+                Product_Id
+            </th>
+            <th>
+                Product_Name
+            </th>
+            <th>
+                List_Price
+            </th>
+            <th>
+                Model_Year
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td hidden>@item.Product_Id</td>
+            <td>@item.Product_Name</td>
+            <td>@item.List_Price</td>
+            <td>@item.Model_Year</td>            
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Product_Id" class="text-decoration-none btn-sm btn-outline-secondary ">Edit</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
